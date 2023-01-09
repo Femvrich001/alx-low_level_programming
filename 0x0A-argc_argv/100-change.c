@@ -1,18 +1,52 @@
-#include "MAIN.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <stdbool.h>
-
 /**
- * coinConverter - Helper function that does all the mathematics
- * @i: Passed in variable from main for calculations
- * Return: The number of coins needed minimum for the passed in variable
+ * main - entry point
+ * @argc: size of argV
+ * @argv: array
+ * Return: 0
  */
-int coinConverter(int i)
+int main(int argc, char *argv[])
 {
-	 int count = 0;
+	int cent, i;
 
-	 while (i != 0)
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	cent = atoi(argv[1]);
+	i = 0;
+	while (cent > 0)
+	{
+		if (cent >= 25)
 		{
-	
+			cent -= 25;
+			i += 1;
+		}
+		else if (cent >= 10)
+		{
+			cent -= 10;
+			i += 1;
+		}
+		else if (cent >= 5)
+		{
+			cent -= 5;
+			i += 1;
+		}
+		else if (cent >= 2)
+		{
+			cent -= 2;
+			i += 1;
+		}
+		else
+		{
+			cent -= 1;
+			i += 1;
+		}
+	}
+	printf("%d\n", i);
+	return (0);
+}
+
+
